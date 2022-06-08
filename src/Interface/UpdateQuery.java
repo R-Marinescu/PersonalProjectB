@@ -16,4 +16,8 @@ public interface UpdateQuery {
     void insertTrainerCourse() throws SQLException;
 
     void insertAssignmentCourse() throws SQLException;
+
+    void insertAssignmentStudent() throws SQLException;
 }
+
+

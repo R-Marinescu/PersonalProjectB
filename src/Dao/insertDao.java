@@ -18,6 +18,8 @@ public class insertDao implements UpdateQuery {
     int Id;
     int IdOne;
     int IdTwo;
+    int IdThree;
+    int IdFour;
     LocalDate DOB;
 
     public static LocalDate addDate() {
@@ -217,6 +219,41 @@ public class insertDao implements UpdateQuery {
         pstStu.setInt(1, a);
         pstStu.setInt(2, b);
         pstStu.setInt(3, c);
+
+        int result = pstStu.executeUpdate();
+        System.out.println(result);
+
+    }
+
+    @Override
+    public void insertAssignmentStudent() throws SQLException {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Insert assignment/student id(5 digits):");
+        int a = scan.nextInt();
+        System.out.println("Insert existing student id:");
+        int b = scan.nextInt();
+        System.out.println("Insert existing assignment id:");
+        int c = scan.nextInt();
+        System.out.println("Insert oral mark numeric value (2 digits)");
+        int d = scan.nextInt();
+        System.out.println("Insert total mark numeric value (2)");
+        int e = scan.nextInt();
+
+        this.IdOne = a;
+        this.IdTwo = b;
+        this.Id = c;
+        this.IdThree = d;
+        this.IdFour = e;
+
+        Connection con = Dbutils.getConnection();
+
+        String insertStudent = "Insert into assign_stud values(?,?,?,?,?)";
+        PreparedStatement pstStu = con.prepareStatement(insertStudent);
+        pstStu.setInt(1, a);
+        pstStu.setInt(2, b);
+        pstStu.setInt(3, c);
+        pstStu.setInt(4, d);
+        pstStu.setInt(5, e);
 
         int result = pstStu.executeUpdate();
         System.out.println(result);

@@ -23,6 +23,7 @@ public class Main {
 
         //Insert assignment/course
        // insert.insertAssignmentCourse();
+        insert.insertAssignmentStudent();
 
 
 
